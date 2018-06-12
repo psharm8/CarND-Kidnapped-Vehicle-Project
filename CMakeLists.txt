@@ -25,4 +25,6 @@ add_executable(particle_filter ${sources})
 
 
 target_link_libraries(particle_filter z ssl uv uWS)
-
+if (MINGW)
+    target_link_libraries(particle_filter ws2_32)
+endif()
